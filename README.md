@@ -1,32 +1,44 @@
-# Job Portal Interface – Candidate Journey
+# 🌟 Job Portal UI – Candidate Journey
 
 ## 🚀 Overview
 This project is my submission for the **UI Developer Evaluation Task**.  
-I chose **Option A: Candidate Journey - Job Discovery Experience**, because I wanted to focus on creating an engaging job search and application flow for users.  
+I chose **Option A: Candidate Journey – Job Discovery Experience** to focus on creating an engaging job search and application flow for users.  
+It demonstrates a **modern, responsive UI** built with React, with clean navigation and an intuitive layout for job discovery.
 
-## 🎨 Key Design Decisions
-1. **Modern Layout** – Used a card-based design for job listings with clear hierarchy.  
-2. **Clean Navigation** – Added a simple navbar with search and filtering options for easy discovery.  
-3. **Responsive Design** – Built with a mobile-first approach using Flexbox and CSS Grid.  
-4. **User Feedback** – Added hover effects, button states, and basic form validation.  
-5. **Color Palette & Typography** – Chose a professional color scheme with clear font hierarchy.  
+## 🎨 Key Features
+- **Interactive Job Listings** – Card-based layout for jobs with hover effects and button states.  
+- **Search & Filter** – Users can search and filter job listings easily (static in current version, ready for API integration).  
+- **Responsive Design** – Mobile-first design using Flexbox and CSS Grid ensures compatibility across devices.  
+- **User Feedback** – Hover effects, active button states, and basic form validation improve UX.  
+- **Professional Styling** – Thoughtful color palette and typography for readability and aesthetic appeal.  
 
 ## 🛠️ Technologies Used
-- **React.js** – For building reusable UI components  
-- **CSS** – For styling and responsive layouts  
-- **Netlify** – For deployment  
+- **React.js** – For building reusable UI components.  
+- **CSS (Flexbox & Grid)** – For styling.
+- **Netlify** – For deployment and hosting.  
 
 ## 📷 Screenshots
+![Job Search Page](https://raw.githubusercontent.com/rashmikumari123/job-portal-ui/refs/heads/main/screenshot/homePage.png)  
+*Job Search Page*
 
-- Job Search Page  
-- Job Details Page  
-- Candidate Dashboard  
+![Saved Job Page](https://raw.githubusercontent.com/rashmikumari123/job-portal-ui/refs/heads/main/screenshot/savedJobs.png)  
+*Job Details Page*
+
+![Candidate Dashboard](https://raw.githubusercontent.com/rashmikumari123/job-portal-ui/refs/heads/main/screenshot/dashboard.png)  
+*Candidate Dashboard*
 
 ## 🔧 Setup Instructions
-To run this project locally:  
-```bash
-git clone https://github.com/your-username/job-portal-ui.git
-cd job-portal-ui
-npm install
-npm start
+To run this project locally:
 
+```bash
+# Clone the repository
+git clone https://github.com/rashmikumari123/job-portal-ui.git
+
+# Navigate to the project folder
+cd job-portal-ui
+
+# Install dependencies
+npm install
+
+# Start the development server
+npm start
