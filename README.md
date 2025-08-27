@@ -1,12 +1,32 @@
-# React + Vite
+# Job Portal Interface – Candidate Journey
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 🚀 Overview
+This project is my submission for the **UI Developer Evaluation Task**.  
+I chose **Option A: Candidate Journey - Job Discovery Experience**, because I wanted to focus on creating an engaging job search and application flow for users.  
 
-Currently, two official plugins are available:
+## 🎨 Key Design Decisions
+1. **Modern Layout** – Used a card-based design for job listings with clear hierarchy.  
+2. **Clean Navigation** – Added a simple navbar with search and filtering options for easy discovery.  
+3. **Responsive Design** – Built with a mobile-first approach using Flexbox and CSS Grid.  
+4. **User Feedback** – Added hover effects, button states, and basic form validation.  
+5. **Color Palette & Typography** – Chose a professional color scheme with clear font hierarchy.  
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🛠️ Technologies Used
+- **React.js** – For building reusable UI components  
+- **CSS** – For styling and responsive layouts  
+- **Netlify** – For deployment  
 
-## Expanding the ESLint configuration
+## 📷 Screenshots
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Job Search Page  
+- Job Details Page  
+- Candidate Dashboard  
+
+## 🔧 Setup Instructions
+To run this project locally:  
+```bash
+git clone https://github.com/your-username/job-portal-ui.git
+cd job-portal-ui
+npm install
+npm start
+
