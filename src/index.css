@@ -1,0 +1,827 @@
+/* ============================================
+   RESET AND BASE STYLES
+   ============================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ============================================
+   NAVBAR COMPONENT STYLES
+   ============================================ */
+.navbar {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 1rem 0;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-brand {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #667eea;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.navbar-brand:hover {
+  color: #764ba2;
+  transform: scale(1.05);
+}
+
+.navbar-nav {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+
+.nav-item .nav-link {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.nav-item .nav-link:hover {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+/* ============================================
+   SEARCH BAR COMPONENT STYLES
+   ============================================ */
+.search-bar {
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.search-bar .search-icon {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1rem;
+  color: #999;
+  z-index: 2;
+}
+
+.search-bar input {
+  padding-left: 45px;
+  padding: 0.8rem 1rem 0.8rem 45px;
+  border: 2px solid #e9ecef;
+  border-radius: 15px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.9);
+  width: 100%;
+}
+
+.search-bar input:focus {
+  border-color: #667eea;
+  box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+  outline: none;
+}
+
+/* ============================================
+   CARD BASE STYLES (Used by JobCard and others)
+   ============================================ */
+.card {
+  background: rgba(255, 255, 255, 0.95);
+  border: none;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  overflow: hidden;
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.card-body {
+  padding: 2rem;
+}
+
+/* ============================================
+   JOB CARD COMPONENT STYLES
+   ============================================ */
+.job-card {
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.job-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #667eea, #764ba2);
+}
+
+.job-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.05), rgba(118, 75, 162, 0.05));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  border-radius: 20px;
+}
+
+.job-card:hover::after {
+  opacity: 1;
+}
+
+/* Job Card Title and Status Row */
+.title-status {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.card-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #2c3e50;
+  margin: 0;
+}
+
+.card-subtitle {
+  color: #7f8c8d;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+/* Job Details Icons */
+.job-icon {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-right: 1rem;
+  color: #555;
+  font-size: 0.9rem;
+}
+
+.job-icon i {
+  font-size: 1rem;
+}
+
+/* Job Card Actions */
+.card-actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+}
+
+/* ============================================
+   DASHBOARD COMPONENT STYLES
+   ============================================ */
+.dashboard-container {
+  background: transparent;
+  padding: 0;
+  margin-bottom: 2rem;
+}
+
+.dashboard-container .row {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.dashboard-container .col-lg-3,
+.dashboard-container .col-lg-6 {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+/* Profile Card in Dashboard */
+.profile-card {
+  background: rgba(255, 255, 255, 0.98);
+  border: none;
+  border-radius: 20px;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+}
+
+.profile-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #667eea, #764ba2);
+}
+
+.profile-avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+  font-size: 3rem;
+  font-weight: 700;
+  color: white;
+}
+
+.profile-name {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+.profile-title {
+  color: #4a5568;
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 2rem;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+.profile-completion-section h6 {
+  color: #1a1a1a;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+/* Dashboard Stats Cards */
+.stats-container {
+  margin-top: 2rem;
+}
+
+.stat-card {
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(102, 126, 234, 0.2);
+  border-radius: 15px;
+  padding: 1.5rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  margin-bottom: 1rem;
+  backdrop-filter: blur(5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.stat-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.stat-number {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #667eea;
+  display: block;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+.stat-label {
+  color: #4a5568;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+/* Dashboard Applications Card */
+.applications-card {
+  background: rgba(255, 255, 255, 0.98);
+  border: 1px solid rgba(46, 204, 113, 0.3);
+  border-radius: 20px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  position: relative;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.applications-card h5 {
+  color: #1a1a1a;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+/* Dashboard Saved Jobs Card */
+.saved-jobs-card {
+  background: rgba(255, 255, 255, 0.98);
+  border: 1px solid rgba(52, 152, 219, 0.3);
+  border-radius: 20px;
+  padding: 2rem;
+  position: relative;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.saved-jobs-card h5 {
+  color: #1a1a1a;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+/* Dashboard Recommended Jobs Card */
+.recommended-card {
+  background: rgba(255, 255, 255, 0.98);
+  border: 1px solid rgba(155, 89, 182, 0.3);
+  border-radius: 20px;
+  padding: 2rem;
+  position: relative;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.recommended-card h5 {
+  color: #1a1a1a;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+/* ============================================
+   SAVED JOBS COMPONENT STYLES
+   ============================================ */
+.saved-card {
+  background: rgba(255, 255, 255, 0.98);
+  border-radius: 18px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  position: relative;
+  overflow: hidden;
+  margin-top: 2rem;
+  margin-bottom: 1.5rem;
+  backdrop-filter: blur(10px);
+}
+
+.saved-card .card-body {
+  padding: 1.5rem;
+}
+
+.saved-card .card-title {
+  color: #1a1a1a;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.saved-card .text-muted {
+  color: #4a5568 !important;
+  font-weight: 500;
+}
+
+.saved-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+  transition: left 0.6s;
+}
+
+.saved-card:hover::before {
+  left: 100%;
+}
+
+.saved-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+}
+
+.hover-shadow:hover {
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+/* ============================================
+   COMMON FORM ELEMENTS
+   ============================================ */
+.form-control, .form-select {
+  padding: 0.8rem 1rem;
+  border: 2px solid #e9ecef;
+  border-radius: 15px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.form-control:focus, .form-select:focus {
+  border-color: #667eea;
+  box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+  outline: none;
+}
+
+/* ============================================
+   BADGES AND STATUS INDICATORS
+   ============================================ */
+.badge {
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.bg-success {
+  background: linear-gradient(135deg, #2ecc71, #27ae60) !important;
+  color: white;
+}
+
+.bg-danger {
+  background: linear-gradient(135deg, #e74c3c, #c0392b) !important;
+  color: white;
+}
+
+.bg-warning {
+  background: linear-gradient(135deg, #f39c12, #e67e22) !important;
+  color: white;
+}
+
+.bg-primary {
+  background: linear-gradient(135deg, #667eea, #764ba2) !important;
+  color: white;
+}
+
+/* Job Status Specific Colors */
+.job-card .badge.bg-success {
+  background: linear-gradient(135deg, #00b894, #00a085) !important;
+}
+
+.job-card .badge.bg-danger {
+  background: linear-gradient(135deg, #fd79a8, #e84393) !important;
+}
+
+.job-card .badge.bg-warning {
+  background: linear-gradient(135deg, #fdcb6e, #f39c12) !important;
+  color: #2c3e50 !important;
+}
+
+/* ============================================
+   BUTTONS
+   ============================================ */
+.btn {
+  padding: 0.6rem 1.5rem;
+  border: none;
+  border-radius: 25px;
+  font-weight: 500;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  text-align: center;
+  font-size: 0.9rem;
+  margin-right: 0.5rem;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #5a6fd8, #6a4190);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+.btn-outline-success {
+  background: transparent;
+  border: 2px solid #2ecc71;
+  color: #2ecc71;
+}
+
+.btn-outline-success:hover {
+  background: #2ecc71;
+  color: white;
+  transform: translateY(-2px);
+}
+
+.btn-outline-primary {
+  background: transparent;
+  border: 2px solid #667eea;
+  color: #667eea;
+}
+
+.btn-outline-primary:hover {
+  background: #667eea;
+  color: white;
+}
+
+.btn-danger {
+  background: linear-gradient(135deg, #e74c3c, #c0392b);
+  color: white;
+}
+
+.btn-danger:hover {
+  background: linear-gradient(135deg, #d62c1a, #a93226);
+  transform: translateY(-2px);
+}
+
+.btn-sm {
+  padding: 0.4rem 1rem;
+  font-size: 0.8rem;
+}
+
+/* ============================================
+   PROGRESS BAR (Used in Dashboard)
+   ============================================ */
+.progress {
+  height: 25px;
+  border-radius: 25px;
+  background: rgba(255, 255, 255, 0.3);
+  overflow: hidden;
+  position: relative;
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.progress-bar {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  border-radius: 25px;
+  transition: width 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+  overflow: hidden;
+}
+
+.progress-bar::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, rgba(255, 255, 255, 0.3) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.3) 50%, rgba(255, 255, 255, 0.3) 75%, transparent 75%);
+  background-size: 20px 20px;
+  animation: progressStripes 1s linear infinite;
+}
+
+@keyframes progressStripes {
+  0% { background-position: 0 0; }
+  100% { background-position: 20px 0; }
+}
+
+/* ============================================
+   TABLE STYLES (Used in Dashboard)
+   ============================================ */
+.table {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.table th {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  font-weight: 600;
+  padding: 1.2rem;
+  border: none;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 0.9rem;
+}
+
+.table td {
+  padding: 1.2rem;
+  vertical-align: middle;
+  border-color: rgba(0, 0, 0, 0.05);
+  font-weight: 500;
+}
+
+.table tbody tr {
+  transition: all 0.3s ease;
+}
+
+.table tbody tr:hover {
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.05), rgba(118, 75, 162, 0.05));
+  transform: scale(1.01);
+}
+
+/* ============================================
+   UTILITY CLASSES
+   ============================================ */
+
+/* Text Colors */
+.text-primary { color: #667eea !important; }
+.text-success { color: #2ecc71 !important; }
+.text-danger { color: #e74c3c !important; }
+.text-secondary { color: #95a5a6 !important; }
+.text-muted { color: #7f8c8d !important; }
+
+/* Spacing */
+.mb-2 { margin-bottom: 0.5rem !important; }
+.mb-3 { margin-bottom: 1rem !important; }
+.mb-4 { margin-bottom: 1.5rem !important; }
+.mt-2 { margin-top: 0.5rem !important; }
+.mt-3 { margin-top: 1rem !important; }
+.mt-4 { margin-top: 1.5rem !important; }
+.mt-5 { margin-top: 3rem !important; }
+.my-4 { margin-top: 1.5rem !important; margin-bottom: 1.5rem !important; }
+
+.p-3 { padding: 1rem !important; }
+.p-4 { padding: 1.5rem !important; }
+
+/* Layout */
+.w-100 { width: 100% !important; }
+.text-center { text-align: center !important; }
+.d-flex { display: flex !important; }
+.justify-content-between { justify-content: space-between !important; }
+.align-items-center { align-items: center !important; }
+.align-items-start { align-items: flex-start !important; }
+
+/* Grid System */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -15px;
+  margin-right: -15px;
+}
+
+.col-md-3, .col-md-6, .col-lg-3, .col-lg-6 {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.col-md-3 { flex: 0 0 25%; max-width: 25%; }
+.col-md-6 { flex: 0 0 50%; max-width: 50%; }
+.col-lg-3 { flex: 0 0 25%; max-width: 25%; }
+.col-lg-6 { flex: 0 0 50%; max-width: 50%; }
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.card:nth-child(even) {
+  animation-delay: 0.2s;
+}
+
+.card:nth-child(odd) {
+  animation-delay: 0.1s;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+/* Tablet View */
+@media (max-width: 1024px) {
+  .col-lg-3, .col-lg-6 {
+    flex: 0 0 100%;
+    max-width: 100%;
+    margin-bottom: 2rem;
+  }
+  
+  .dashboard-container .col-lg-3,
+  .dashboard-container .col-lg-6 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+
+/* Mobile View */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 15px;
+  }
+  
+  .navbar-container {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .navbar-nav {
+    gap: 1rem;
+  }
+  
+  .col-md-3, .col-md-6 {
+    flex: 0 0 100%;
+    max-width: 100%;
+    margin-bottom: 1rem;
+  }
+  
+  .title-status {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .card-actions {
+    flex-direction: column;
+  }
+  
+  .btn {
+    margin-bottom: 0.5rem;
+  }
+  
+  .card-body {
+    padding: 1.5rem;
+  }
+  
+  .row {
+    margin-left: -10px;
+    margin-right: -10px;
+  }
+  
+  .col-md-3, .col-md-6, .col-lg-3, .col-lg-6 {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+/* Small Mobile View */
+@media (max-width: 576px) {
+  .navbar-brand {
+    font-size: 1.5rem;
+  }
+  
+  .card-title {
+    font-size: 1.1rem;
+  }
+  
+  .card-subtitle {
+    font-size: 1rem;
+  }
+  
+  .job-icon {
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+  
+  .table {
+    font-size: 0.9rem;
+  }
+  
+  .stat-number {
+    font-size: 2rem !important;
+  }
+}
+
+/* ============================================
+   ADDITIONAL HELPER CLASSES
+   ============================================ */
+.rounded {
+  border-radius: 15px !important;
+}
