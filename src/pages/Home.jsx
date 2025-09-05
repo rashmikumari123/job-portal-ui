@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import jobs from "../data/jobs";
 import JobCard from "../components/JobCard";
 import SearchBar from "../components/SearchBar";
@@ -9,6 +9,7 @@ function Home() {
   const [filterLocation, setFilterLocation] = useState("All");
   const [filterType, setFilterType] = useState("All");
   const [sortBy, setSortBy] = useState("date");
+  const [filteredJobs, setFilteredJobs] = useState(jobs); 
 
   const handleSave = (job) => {
     if (!savedJobs.find((j) => j.id === job.id)) {
@@ -17,20 +18,31 @@ function Home() {
     }
   };
 
-  // Filtering + search
-  const filteredJobs = jobs
-    .filter((job) =>
-      job.title.toLowerCase().trim().includes(search.toLowerCase().trim())
-    )
-    .filter((job) => filterLocation === "All" || job.location === filterLocation)
-    .filter((job) => filterType === "All" || job.type === filterType)
-    .sort((a, b) => {
-      if (sortBy === "date") return new Date(b.datePosted) - new Date(a.datePosted);
-      if (sortBy === "salary")
-        return parseInt(b.salary.replace(/\D/g, "")) - parseInt(a.salary.replace(/\D/g, ""));
-      if (sortBy === "company") return a.company.localeCompare(b.company);
-      return 0;
-    });
+  
+  const filterJobs = () => {
+    let filtered = jobs
+      .filter((job) =>
+        job.title.toLowerCase().includes(search.toLowerCase()) ||
+        job.company.toLowerCase().includes(search.toLowerCase()) ||
+        job.description.toLowerCase().includes(search.toLowerCase())
+      )
+      .filter((job) => filterLocation === "All" || job.location === filterLocation)
+      .filter((job) => filterType === "All" || job.type === filterType)
+      .sort((a, b) => {
+        if (sortBy === "date") return new Date(b.datePosted) - new Date(a.datePosted);
+        if (sortBy === "salary")
+          return parseInt(b.salary.replace(/\D/g, "")) - parseInt(a.salary.replace(/\D/g, ""));
+        if (sortBy === "company") return a.company.localeCompare(b.company);
+        return 0;
+      });
+
+    setFilteredJobs(filtered); 
+  };
+
+  
+  useEffect(() => {
+    filterJobs();
+  }, [search]); 
 
   return (
     <div className="container my-4">
